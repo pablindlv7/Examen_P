@@ -1,0 +1,24 @@
+{% extends "control/base.html" %}
+
+{% load static %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div class="contenedorFormulario">
+
+    {% if "valido" in request.GET %}
+
+        <p style="color:white;">Información Enviada.</p>
+
+    {% endif %}
+
+    <form action="" method="POST" style="text-align: center;" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <button type="submit" id="btnEnviar" class="btn btn-success">Enviar</button>
+    </form>
+        
+</div>
+
+{% endblock %}
